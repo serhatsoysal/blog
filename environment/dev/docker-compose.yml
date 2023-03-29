@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+    mysql:
+        image: mysql:latest
+        container_name: mysql.blogprojectdb.dev
+        environment:
+            MYSQL_ROOT_PASSWORD: blogproject123
+            MYSQL_DATABASE: blogprojectdb
+        ports:
+            - "3306:3306"
+        volumes:
+            - ".data/var/lib/mysql:cached"
