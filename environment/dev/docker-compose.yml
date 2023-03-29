@@ -3,11 +3,15 @@ version: '3.4'
 services:
     mysql:
         image: mysql:latest
-        container_name: mysql.blogprojectdb.dev
+        container_name: blogprojectdb
+        ports:
+            - "3306:3306"
+        restart: always
+        command: --default-authentication-plugin=mysql_native_password
         environment:
             MYSQL_ROOT_PASSWORD: blogproject123
             MYSQL_DATABASE: blogprojectdb
-        ports:
-            - "3306:3306"
         volumes:
-            - ".data/var/lib/mysql:cached"
+            - mysql:/var/lib/mysql
+volumes:
+    mysql:

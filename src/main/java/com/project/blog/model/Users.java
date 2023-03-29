@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Date;
 
 @Entity
@@ -27,7 +28,7 @@ public class Users implements Serializable {
 
     @Column(name = "createDate", columnDefinition = "TIMESTAMP")
     private Date createDate;
-    @Column(name = "createDate", columnDefinition = "TIMESTAMP")
+    @Column(name = "updateDate", columnDefinition = "TIMESTAMP")
     private Date updateDate;
 
     @Column(name = "userName", length = 60)
@@ -54,7 +55,16 @@ public class Users implements Serializable {
     private Picture pictureId;
 
     @OneToOne
-    @JoinColumn(name = "CountryId", referencedColumnName = "id")
+    @JoinColumn(name = "countryId", referencedColumnName = "id")
     private Country country;
+
+
+    @OneToMany
+    @JoinColumn(name = "commentId", referencedColumnName = "id")
+    private List<Comment> comment;
+
+    @OneToMany
+    @JoinColumn(name = "textId", referencedColumnName = "id")
+    private List<Text> text;
 
 }

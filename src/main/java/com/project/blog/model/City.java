@@ -7,7 +7,7 @@ import lombok.Setter;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "Country")
+@Table(name = "city")
 @Getter
 @Setter
 public class City implements Serializable {

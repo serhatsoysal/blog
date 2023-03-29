@@ -15,12 +15,12 @@ public class Text  implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", length = 25)
-    private Integer id;
+    private Long id;
 
-    @Column(name = "name", length = 10000)
+    @Column(name = "description", length = 1000)
     private String description;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "userId", referencedColumnName = "id")
     private Users users;
 
@@ -35,7 +35,7 @@ public class Text  implements Serializable {
     @Column(name = "createDate", columnDefinition = "TIMESTAMP")
     private Date createDate;
 
-    @Column(name = "createDate", columnDefinition = "TIMESTAMP")
+    @Column(name = "updateDate", columnDefinition = "TIMESTAMP")
     private Date updateDate;
 
     @Column(name = "status", columnDefinition = "boolean default false")
