@@ -1,7 +1,5 @@
 package com.project.blog.dto;
 
-import com.project.blog.model.City;
-import com.project.blog.model.Country;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;

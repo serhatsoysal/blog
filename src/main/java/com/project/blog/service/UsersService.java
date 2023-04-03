@@ -1,11 +1,13 @@
 package com.project.blog.service;
 
 import com.project.blog.controller.UserController;
-import com.project.blog.dto.CreateUserResponse;
-import com.project.blog.model.*;
-import jakarta.transaction.Transactional;
 import com.project.blog.dto.CreateUserRequest;
+import com.project.blog.dto.CreateUserResponse;
+import com.project.blog.model.City;
+import com.project.blog.model.UserType;
+import com.project.blog.model.Users;
 import com.project.blog.repository.UsersRepository;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
