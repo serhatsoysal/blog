@@ -1,22 +1,17 @@
 package com.project.blog.model;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
 import java.io.Serializable;
 
 @Entity
 @Table(name = "usertype")
-@Getter
-@Setter
-public class UserType  implements Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", length = 25)
-    private Integer id;
-
-    @Column(name = "name", length = 60)
-    private String name;
+@Data
+@NoArgsConstructor
+@SuperBuilder
+public class UserType extends BaseEntity{
 
 }

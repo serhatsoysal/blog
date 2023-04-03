@@ -1,9 +1,9 @@
 package com.project.blog.model;
 
 import jakarta.persistence.*;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
 import java.io.Serializable;
 import java.util.List;
@@ -11,18 +11,11 @@ import java.util.Date;
 
 @Entity
 @Table(name = "users")
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
-public class Users implements Serializable {
+@SuperBuilder
+public class Users  extends BaseEntity  implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", length = 25)
-    private Integer id;
-
-    @Column(name = "name", length = 60)
-    private String name;
     @Column(name = "Surname", length = 60)
     private String surname;
 
@@ -33,6 +26,9 @@ public class Users implements Serializable {
 
     @Column(name = "userName", length = 60)
     private String userName;
+
+    @Column(name = "email", length = 100)
+    private String email;
 
     @Column(name = "password", length = 60)
     private String password;
@@ -52,12 +48,11 @@ public class Users implements Serializable {
 
     @OneToOne
     @JoinColumn(name = "pictureId", referencedColumnName = "id")
-    private Picture pictureId;
+    private Picture picture;
 
     @OneToOne
-    @JoinColumn(name = "countryId", referencedColumnName = "id")
-    private Country country;
-
+    @JoinColumn(name = "cityId", referencedColumnName = "id")
+    private City city;
 
     @OneToMany
     @JoinColumn(name = "commentId", referencedColumnName = "id")

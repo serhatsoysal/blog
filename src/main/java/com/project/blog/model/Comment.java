@@ -1,17 +1,15 @@
 package com.project.blog.model;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 import java.io.Serializable;
 import java.util.Date;
 
 @Entity
 @Table(name = "comment")
-@Getter
-@Setter
-public class Comment  implements Serializable {
+@Data
+public class Comment implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,25 +1,19 @@
 package com.project.blog.model;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
 import java.io.Serializable;
 
 @Entity
 @Table(name = "tag")
-@Getter
-@Setter
-public class Tag  implements Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", length = 25)
-    private Integer id;
-
-    @Column(name = "name", length = 60)
-    private String name;
+@Data
+@NoArgsConstructor
+@SuperBuilder
+public class Tag  extends BaseEntity  implements Serializable {
 
     @Column(name = "frequency", length = 500)
     private String frequency;
-
 }
